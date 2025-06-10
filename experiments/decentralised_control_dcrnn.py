@@ -1,7 +1,9 @@
 import os
 import sys
-# Add the project root to sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Get the project root directory
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(PROJECT_ROOT)
 
 import gymnasium as gym
 import sumo_rl
@@ -13,11 +15,11 @@ from sumo_rl.models.transformer_model import PolicyNetwork
 import torch
 import torch.optim as optim
 
-# Set up the environment
-NET_FILE = '../sumo_rl/nets/RESCO/grid4x4/grid4x4.net.xml'
-ROUTE_FILE = '../sumo_rl/nets/RESCO/grid4x4/grid4x4_1.rou.xml'
-OUTPUT_CSV = '../results/my_result_dcrnn'
-MODEL_DIR = '../models'
+# Use absolute paths
+NET_FILE = os.path.join(PROJECT_ROOT, 'sumo_rl', 'nets', 'RESCO', 'grid4x4', 'grid4x4.net.xml')
+ROUTE_FILE = os.path.join(PROJECT_ROOT, 'sumo_rl', 'nets', 'RESCO', 'grid4x4', 'grid4x4_1.rou.xml')
+OUTPUT_CSV = os.path.join(PROJECT_ROOT, 'results', 'my_result_dcrnn')
+MODEL_DIR = os.path.join(PROJECT_ROOT, 'models')
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 train_env = sumo_rl.parallel_env(
