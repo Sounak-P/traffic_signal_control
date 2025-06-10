@@ -17,7 +17,12 @@ import sumolib
 import traci
 from gymnasium.utils import EzPickle, seeding
 from pettingzoo import AECEnv
-from pettingzoo.utils import agent_selector, wrappers
+#from pettingzoo.utils import agent_selector, wrappers
+from pettingzoo.utils import wrappers
+try:
+    from pettingzoo.utils.agent_selector import agent_selector
+except ImportError:
+    from pettingzoo.utils import agent_selector
 from pettingzoo.utils.conversions import parallel_wrapper_fn
 
 from .observations import DefaultObservationFunction, ObservationFunction
