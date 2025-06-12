@@ -70,7 +70,8 @@ class SingleTLPhasePredictor(nn.Module):
         """
         super(SingleTLPhasePredictor, self).__init__()
         self.hid_dim = hid_dim
-        self.mask = mask
+        # Register mask as a buffer so it gets moved to the correct device with the model
+        self.register_buffer('mask', mask)
         self.input_dim = hid_dim + input_dim
 
         # MLP to map concatenated features to action logits
@@ -109,7 +110,8 @@ class TLPhasePredictor(nn.Module):
         self.num_ts = num_nodes - num_virtual_nodes  # Exclude virtual incoming/ongoing nodes
         self.num_virtual_nodes = num_virtual_nodes
         self.max_green_phases = max_green_phases
-        self.mask = mask[:-num_virtual_nodes]
+        # Register mask as a buffer so it gets moved to the correct device with the model
+        self.register_buffer('mask', mask[:-num_virtual_nodes])
 
         self.input_dim = hid_dim + input_dim
 

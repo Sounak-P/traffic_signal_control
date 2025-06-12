@@ -75,5 +75,5 @@ model_args = {
 }
 
 PGMultiAgent = PGMultiAgent(k, hops, model_args, DEVICE)
-PGMultiAgent.train(train_env, num_episodes=2, model_dir=MODEL_DIR)
+PGMultiAgent.train(train_env, num_episodes=1000, model_dir=MODEL_DIR)
 

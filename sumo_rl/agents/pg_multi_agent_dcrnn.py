@@ -200,8 +200,9 @@ class PGMultiAgent:
                     agents_features, subgraph_nodes, subgraph_edge_index = self.create_local_graph(
                         agent_name, max_lanes
                     )
-                    agents_features = agents_features.unsqueeze(1)
-                    initial_hidden_state = torch.zeros((1, subgraph_nodes.size(0) * self.hid_dim), device=self.device)
+                    agents_features = agents_features.unsqueeze(1).to(self.device)
+                    subgraph_nodes = subgraph_nodes.to(self.device)
+                    initial_hidden_state = torch.zeros((self.num_rnn_layers, 1, subgraph_nodes.size(0) * self.hid_dim), device=self.device)
 
                     model = self.models[agent_name]
                     logits = model(agents_features, initial_hidden_state, agent_idx, subgraph_nodes).squeeze(0)

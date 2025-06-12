@@ -45,6 +45,10 @@ class DiffusionGraphConv(BaseModel):
         if self._max_diffusion_step > 0:
             # forward and reverse diffusion matrices
             for support in self._supports:
+                # Ensure support matrix is on the same device as x
+                device = x.device
+                if support.device != device:
+                    support = support.to(device)
                 x_k = x
                 for k in range(self._max_diffusion_step):
                     x_k = torch.sparse.mm(support, x_k)
@@ -115,6 +119,20 @@ class DCGRUCell(BaseModel):
 
         if num_proj is not None:
             self.project = nn.Linear(self._hid_dim, self._num_proj)
+
+    def to(self, device):
+        """Override to() method to handle sparse matrices device placement"""
+        # Move the module parameters and buffers to the device
+        super(DCGRUCell, self).to(device)
+        
+        # Move sparse support matrices to the device
+        self._supports = [support.to(device) for support in self._supports]
+        
+        # Update the DiffusionGraphConv layers with moved supports
+        self.dconv_gate._supports = self._supports
+        self.dconv_candidate._supports = self._supports
+        
+        return self
 
     def forward(self, inputs, state):
         """
