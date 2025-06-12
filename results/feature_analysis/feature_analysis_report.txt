@@ -1,62 +1,62 @@
 ================================================================================
 TRAFFIC SIGNAL FEATURE ANALYSIS REPORT
 ================================================================================
-Dataset Shape: (20, 381)
+Dataset Shape: (20, 171)
 Number of Episodes: 20
-Number of Features: 380
+Number of Features: 170
 
 TOP 10 FEATURES CORRELATED WITH TARGET REWARD:
 --------------------------------------------------
- 1. joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_queue  0.926
- 2. joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_density  0.926
- 3. cluster_10763711618_2521199755_301572132_density_variance  0.825
- 4. joinedS_1375310919_1382922538_2495598155_26057312_#3more_queue_variance  0.825
- 5. joinedS_1375310919_1382922538_2495598155_26057312_#3more_density_variance  0.802
- 6. cluster_10763711618_2521199755_301572132_avg_density  0.767
- 7. avg_system_stopped_vehicles               0.753
- 8. avg_system_waiting_time                   0.704
- 9. avg_system_speed                          0.645
-10. GS_1282870796_queue_variance              0.628
+ 1. avg_system_waiting_time                   0.944
+ 2. avg_system_stopped_vehicles               0.907
+ 3. B2_action_changes                         0.625
+ 4. A2_queue_variance                         0.574
+ 5. B2_avg_density                            0.533
+ 6. A2_max_queue                              0.489
+ 7. B2_avg_queue                              0.471
+ 8. avg_system_speed                          0.463
+ 9. A1_density_variance                       0.453
+10. C0_most_frequent_action                   0.450
 
 TOP 10 MOST IMPORTANT FEATURES:
 --------------------------------------------------
- 1. joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_queue  1.000
- 2. joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_density  0.939
- 3. joinedS_1375310919_1382922538_2495598155_26057312_#3more_queue_variance  0.406
- 4. cluster_10763711618_2521199755_301572132_density_variance  0.323
- 5. avg_system_waiting_time                   0.317
- 6. avg_system_stopped_vehicles               0.294
- 7. joinedS_1375310919_1382922538_2495598155_26057312_#3more_density_variance  0.283
- 8. GS_26057304_queue_variance                0.267
- 9. cluster_10763711618_2521199755_301572132_avg_density  0.237
-10. GS_26057304_density_variance              0.220
+ 1. avg_system_waiting_time                   0.943
+ 2. avg_system_stopped_vehicles               0.875
+ 3. C3_action_changes                         0.250
+ 4. A3_queue_variance                         0.192
+ 5. D1_avg_queue                              0.146
+ 6. A2_queue_variance                         0.133
+ 7. C3_queue_variance                         0.126
+ 8. D0_density_variance                       0.124
+ 9. C0_most_frequent_action                   0.117
+10. A1_most_frequent_action                   0.117
 
 NO MISSING VALUES FOUND
 
 FEATURE CATEGORIES:
 --------------------------------------------------
 System-level features:       4
-Traffic signal features:   370
+Traffic signal features:   160
 Network topology features:   5
 
 SUMMARY STATISTICS FOR TOP 5 FEATURES:
 --------------------------------------------------
-joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_queue:
-  Mean:    0.009  Std:    0.002
-  Min:     0.006  Max:    0.013
-
-joinedS_1375310919_1382922538_2495598155_26057312_#3more_avg_density:
-  Mean:    0.010  Std:    0.002
-  Min:     0.007  Max:    0.014
-
-joinedS_1375310919_1382922538_2495598155_26057312_#3more_queue_variance:
-  Mean:    0.000  Std:    0.000
-  Min:     0.000  Max:    0.000
-
-cluster_10763711618_2521199755_301572132_density_variance:
-  Mean:    0.000  Std:    0.000
-  Min:     0.000  Max:    0.000
-
 avg_system_waiting_time:
-  Mean:  144.418  Std:    5.745
-  Min:   135.335  Max:  155.402
+  Mean:  285.792  Std:    5.048
+  Min:   276.335  Max:  293.497
+
+avg_system_stopped_vehicles:
+  Mean:   14.323  Std:    0.169
+  Min:    13.989  Max:   14.603
+
+C3_action_changes:
+  Mean:  158.000  Std:    4.218
+  Min:   150.000  Max:  167.000
+
+A3_queue_variance:
+  Mean:    0.000  Std:    0.000
+  Min:     0.000  Max:    0.000
+
+D1_avg_queue:
+  Mean:    0.002  Std:    0.000
+  Min:     0.002  Max:    0.003
